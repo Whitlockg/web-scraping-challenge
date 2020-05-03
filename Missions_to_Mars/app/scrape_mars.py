@@ -65,12 +65,12 @@ def twitter_weather(browser):
 
 def mars_facts():
     try:
-        df = pd.read_html("http://space-facts.com/mars/")[0]
+        facts_df = pd.read_html("http://space-facts.com/mars/")[0]
     except BaseException:
         return None
 
-    df.columns = ["description", "value"]
-    df.set_index("description", inplace=True)
+    facts_df.columns = ["description", "value"]
+    facts_df.set_index("description", inplace=True)
 
     # Add some bootstrap styling to <table>
     return df.to_html(classes="table table-striped")
